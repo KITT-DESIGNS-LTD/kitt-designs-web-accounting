@@ -1,0 +1,25 @@
+I want to create a webapp (svelte I guess) to help us with our accounting. 
+
+- It needs to be mobile and desktop accessible. 
+
+There will be 2 pages. The homepage only contains buttons to these 2 pages
+
+## Reciept
+Allows the user to upload a photo of a receipt to a google drive folder. 
+They can
+- upload an saved image on their device via file explorer
+- upload multiple images via drag and drop
+- take a picture with their device's camera
+
+## Invoice
+Generates an invoice with the same functionality as existing online invoice generators like https://invoice-generator.com/ except
+- It uses our predefined (statically stored) company branding and layout
+- Has 2 signature fields. Signatures can be saved in the cookies of the website for easy reuse.
+-- The sender
+-- The sendee
+Either party can create the invoice. When they do, it saves it as a Partial Invoice in a google drive folder that can be accessed via a generated link for 48 hours
+The other party may access a Partial Invoice via that link and finish it by signing their side, making a Completed Invoice. 
+Saving a Partial or Completed invoice will overwrite it on the google drive.
+If the invoice remains Partial for more than 48 hours, it is deleted from the google drive.
+
+All files are given human-readable names on the google drive that must, at the very least, contain the date of creation

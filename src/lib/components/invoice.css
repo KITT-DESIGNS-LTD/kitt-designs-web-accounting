@@ -1,0 +1,336 @@
+/* Shared by InvoiceEditor and InvoiceView: the on-screen invoice "paper". */
+.inv {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 1.25rem;
+	display: grid;
+	gap: 1.5rem;
+}
+
+.inv-head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.inv-brand {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+.inv-brand img {
+	display: block;
+	width: 44px;
+	height: 44px;
+}
+
+.inv-title {
+	display: grid;
+	gap: 0.35rem;
+	justify-items: end;
+	margin-left: auto;
+}
+
+.inv-title h1,
+.inv-title h2 {
+	font-size: 1.8rem;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	color: var(--accent);
+}
+
+.inv-number {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	color: var(--muted);
+}
+
+.inv-number input {
+	width: 11rem;
+	text-align: right;
+}
+
+.inv-top {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.inv-parties {
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+}
+
+.inv-party {
+	display: grid;
+	gap: 0.4rem;
+	align-content: start;
+	min-width: 0;
+}
+
+.inv-party-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+.inv-label {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--muted);
+}
+
+.inv-name {
+	font-weight: 700;
+}
+
+.inv-text {
+	white-space: pre-line;
+	overflow-wrap: anywhere;
+}
+
+.inv-meta {
+	display: grid;
+	gap: 0.5rem;
+	align-content: start;
+}
+
+.inv-meta-row {
+	display: grid;
+	grid-template-columns: 7.5rem 1fr;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.inv-meta-row > :first-child {
+	color: var(--muted);
+}
+
+.inv-balance {
+	background: var(--soft);
+	border-radius: 8px;
+	padding: 0.5rem 0.65rem;
+	font-weight: 700;
+}
+
+.inv-balance > :first-child {
+	color: var(--ink);
+}
+
+/* Line items: a table on wide screens, stacked cards on phones. */
+.inv-items {
+	display: grid;
+	gap: 0.5rem;
+}
+
+.inv-items-head {
+	display: none;
+}
+
+.inv-item {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.5rem;
+	padding: 0.75rem;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+}
+
+.inv-item .description {
+	grid-column: 1 / -1;
+}
+
+.inv-item .amount {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	grid-column: 1 / -1;
+	font-weight: 600;
+}
+
+.inv-item .right {
+	display: flex;
+	align-items: baseline;
+	gap: 0.4rem;
+}
+
+.inv-item label,
+.inv-field {
+	display: grid;
+	gap: 0.25rem;
+}
+
+.inv-bottom {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.inv-notes {
+	display: grid;
+	gap: 1rem;
+	align-content: start;
+}
+
+.inv-totals {
+	display: grid;
+	gap: 0.5rem;
+	align-content: start;
+}
+
+.inv-total-row {
+	display: grid;
+	grid-template-columns: 1fr minmax(0, 11rem);
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.inv-total-row > :first-child {
+	color: var(--muted);
+}
+
+.inv-total-row > :last-child {
+	text-align: right;
+}
+
+.inv-total-row.strong {
+	font-weight: 700;
+	border-top: 1px solid var(--border);
+	padding-top: 0.6rem;
+}
+
+.inv-total-row.strong > :first-child {
+	color: var(--ink);
+}
+
+.inv-adjust {
+	display: grid;
+	grid-template-columns: 1fr 4.2rem;
+	gap: 0.35rem;
+}
+
+.inv-adjust select {
+	padding-inline: 0.35rem;
+}
+
+.inv input[type='number'] {
+	text-align: right;
+}
+
+@media (min-width: 720px) {
+	.inv {
+		padding: 2rem;
+	}
+
+	.inv-top {
+		grid-template-columns: 1fr 19.5rem;
+	}
+
+	.inv-parties {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.inv-parties .wide {
+		grid-column: 1 / -1;
+	}
+
+	.inv-bottom {
+		grid-template-columns: 1fr 20rem;
+	}
+
+	.inv-items {
+		gap: 0;
+	}
+
+	.inv-items-head,
+	.inv-item {
+		display: grid;
+		grid-template-columns: 1fr 6rem 9rem 9rem var(--inv-remove, 0rem);
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.inv-items-head {
+		padding: 0.55rem 0.75rem;
+		border-radius: 8px;
+		background: var(--ink);
+		color: #fff;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	.inv-items-head > :not(:first-child) {
+		text-align: right;
+	}
+
+	.inv-item .right {
+		justify-content: flex-end;
+	}
+
+	.inv-item {
+		padding: 0.5rem 0.75rem;
+		border: 0;
+		border-bottom: 1px solid var(--border);
+		border-radius: 0;
+	}
+
+	.inv-item .description,
+	.inv-item .amount {
+		grid-column: auto;
+	}
+
+	.inv-item .amount {
+		justify-content: flex-end;
+	}
+
+	/* Column headers replace the per-field labels. */
+	.inv-item .field-label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+}
+
+/* Editor only: room for the "remove line" button. */
+.inv-item.editable .amount {
+	grid-column: auto;
+}
+
+.inv-item .remove {
+	justify-self: end;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: 0;
+	border-radius: 8px;
+	background: none;
+	color: var(--muted);
+	font-size: 1.4rem;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.inv-item .remove:hover:not(:disabled) {
+	background: var(--soft);
+	color: var(--danger);
+}
+
+.inv-item .remove:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+.inv-editor {
+	--inv-remove: 2.5rem;
+}

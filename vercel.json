@@ -1,0 +1,5 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"redirects": [{ "source": "/", "destination": "/accounting", "permanent": false }],
+	"crons": [{ "path": "/accounting/api/cron/cleanup", "schedule": "0 17 * * *" }]
+}

@@ -1,0 +1,31 @@
+{
+	"name": "web-accounting",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"start": "node --env-file-if-exists=.env build",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"google-token": "node --env-file-if-exists=.env scripts/google-oauth-token.mjs",
+		"test:wetrun": "node --env-file-if-exists=.env --test --test-timeout=120000 tests/wetrun.test.mjs"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-node": "^5.5.7",
+		"@sveltejs/adapter-vercel": "^6.3.4",
+		"@sveltejs/kit": "^2.70.3",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"@types/node": "^26.6.3",
+		"svelte": "^5.57.1",
+		"svelte-check": "^4.7.6",
+		"typescript": "^6.0.3",
+		"vite": "^8.3.1"
+	},
+	"dependencies": {
+		"@googleapis/drive": "^26.0.1",
+		"pdfmake": "^0.3.11",
+		"signature_pad": "^5.1.4"
+	}
+}

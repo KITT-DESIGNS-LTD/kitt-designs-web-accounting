@@ -1,0 +1,191 @@
+:root {
+	/* Overridden from src/lib/branding.ts in the root layout. */
+	--accent: #fd4658;
+	--ink: #02021a;
+	--bg: #f3f4f7;
+	--surface: #ffffff;
+	--muted: #6b7280;
+	--border: #d5d9e0;
+	--soft: #f3f5f9;
+	--danger: #b42318;
+	--success: #18794e;
+	--radius: 10px;
+	font-family:
+		system-ui,
+		-apple-system,
+		'Segoe UI',
+		Roboto,
+		sans-serif;
+	color: var(--ink);
+	background: var(--bg);
+	-webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100dvh;
+	line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+
+a {
+	color: var(--ink);
+}
+
+/* 16px inputs stop iOS from zooming in on focus. */
+input,
+textarea,
+select,
+button {
+	font: inherit;
+	color: inherit;
+}
+
+input,
+textarea,
+select {
+	width: 100%;
+	min-width: 0;
+	padding: 0.55rem 0.65rem;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--surface);
+	font-size: 16px;
+}
+
+textarea {
+	resize: vertical;
+	display: block;
+	/* Grow with the text where supported; rows= is the fallback. */
+	field-sizing: content;
+	min-height: 4.6rem;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 1px;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	min-height: 44px;
+	padding: 0.55rem 1.1rem;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--surface);
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--ink);
+	cursor: pointer;
+}
+
+.btn:hover {
+	border-color: var(--accent);
+}
+
+.btn.primary {
+	background: var(--ink);
+	border-color: var(--ink);
+	color: #fff;
+}
+
+.btn.primary:hover {
+	background: color-mix(in srgb, var(--ink) 82%, #fff);
+}
+
+.btn:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+.link-btn {
+	padding: 0.25rem 0;
+	border: 0;
+	background: none;
+	color: var(--ink);
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-decoration: underline;
+	text-decoration-color: var(--accent);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+
+.link-btn:hover {
+	color: var(--accent);
+}
+
+.card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 1.25rem;
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.small {
+	font-size: 0.875rem;
+}
+
+.notice {
+	padding: 0.75rem 1rem;
+	border-radius: 8px;
+	border: 1px solid var(--border);
+	background: var(--surface);
+}
+
+.notice.error {
+	border-color: #f3b8b2;
+	background: #fef3f2;
+	color: var(--danger);
+}
+
+.notice.success {
+	border-color: #a9dcc3;
+	background: #edfaf3;
+	color: var(--success);
+}
+
+.page-title {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
